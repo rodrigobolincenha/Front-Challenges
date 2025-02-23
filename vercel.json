@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/FrontMentor/First/index.html"
+      "destination": "/First/index.html"
     }
   ]
 }
