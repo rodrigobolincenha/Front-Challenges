@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/FrontMentor/First/qr-code-component-main/index.html"
+      "destination": "/FrontMentor/First/index.html"
     }
   ]
 }
