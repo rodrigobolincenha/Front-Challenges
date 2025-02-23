@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/FrontMentor/First/qr-code-component-main/index.html"
+    }
+  ]
+}
