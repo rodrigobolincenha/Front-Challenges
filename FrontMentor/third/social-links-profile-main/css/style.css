@@ -13,8 +13,8 @@
   --grey-900: hsl(0, 0%, 8%);
 
   /* Spacing */
-
-  --spacing-md: 1.5rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
   --spacing-lg: 2rem;
 
   /* Typography */
@@ -37,7 +37,8 @@ body {
 
 .profile {
   background-color: var(--grey-800);
-  width: 90%;
+  width: clamp(300px, 90dvw, 495px);
+
   max-width: 495px;
   display: flex;
   flex-direction: column;
@@ -48,16 +49,30 @@ body {
   gap: 1rem;
   box-shadow: 8px 8px var(--green);
 
-  transition: all 0.7s ease-in-out;
+  animation: fadeIn 0.7s ease-in-out;
+  animation-fill-mode: forwards;
+
   &:hover {
     transform: scale(1.05);
     border: 2px solid var(--green);
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 3;
+    transform: scale(1);
+  }
+}
+
 .profile-figure {
   & img {
-    width: 100%;
-    height: 100%;
+    width: clamp(100px, 30dvw, 150px);
+    height: clamp(100px, 30dvw, 150px);
     object-fit: cover;
     border-radius: 50%;
   }
@@ -68,17 +83,18 @@ body {
   align-items: center;
   gap: 1rem;
   & h1 {
-    font-size: var(--font-size-lg);
+    font-size: clamp(1.3rem, 7dvw, 2rem);
     font-weight: var(--font-weight-bold);
     color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
   & p:first-of-type {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 4dvw, 1rem);
     color: var(--green);
     font-weight: var(--font-weight-normal);
   }
   & p:last-of-type {
-    font-size: 0.9rem;
+    font-size: clamp(0.4rem, 3.5dvw, 0.9rem);
     color: var(--white);
     padding: 1rem 1rem;
     font-weight: var(--font-weight-normal);
@@ -90,15 +106,15 @@ body {
   flex-direction: column;
 
   gap: 1rem;
-  width: 100%;
+
   list-style: none;
   padding: var(--spacing-md);
-
+  font-size: clamp(0.4rem, 3.5dvw, 1.2rem);
   & li a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 8rem;
+    padding: clamp(0.5rem, 3.5dvw, 1rem) clamp(1rem, 20dvw, 8rem);
     background-color: var(--grey-700);
     color: var(--white);
     text-decoration: none;
@@ -107,6 +123,15 @@ body {
     &:hover {
       background-color: var(--green);
       color: var(--grey-900);
+      transform: scale(1.05);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    /* Estilos de foco para acessibilidade O estilo :focus adiciona um contorno amarelo ao 
+    redor dos botões quando focados via teclado, 
+    melhorando a navegação para usuários que não usam mouse.*/
+    &:focus {
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
     }
   }
 }
@@ -114,30 +139,5 @@ body {
 @media (prefers-reduced-motion: reduce) {
   main :where(h1, p, a, img) {
     transition: none;
-  }
-}
-
-@media (max-width: 400px) {
-  .profile {
-    padding: var(--spacing-md);
-    box-shadow: 4px 4px var(--green);
-  }
-  .profile-figure img {
-    width: 100px;
-    height: 100px;
-  }
-  .profile-content {
-    & p:last-of-type {
-      font-size: 0.8rem;
-    }
-  }
-  .social-links {
-    width: 100%;
-    padding: 0;
-    max-width: 300px;
-    font-size: 0.8rem;
-    & li a {
-      padding: 0.8rem 5rem;
-    }
   }
 }
