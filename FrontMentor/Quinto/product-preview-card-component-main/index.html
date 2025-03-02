@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Frontend Mentor | Product preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <main class="container">
+      <figure class="container-figure">
+        <picture>
+          <source
+            media="(max-width: 600px)"
+            srcset="images/image-product-mobile.jpg"
+          />
+          <img
+            src="images/image-product-desktop.jpg"
+            alt="Gabrielle Essence Eau De Parfum bottle lying on a flat surface with green leaves decorating around it"
+            class="fg-img"
+            loading="lazy"
+          />
+        </picture>
+      </figure>
+
+      <section class="container-section">
+        <p class="article-p">Perfume</p>
+        <h1 class="article-h1">Gabrielle Essence Eau De Parfum</h1>
+        <p class="article-p">
+          A floral, solar and voluptuous interpretation composed by Olivier
+          Polge, Perfumer-Creator for the House of CHANEL.
+        </p>
+        <div class="section-div">
+          <p class="section-p">$149.99</p>
+          <p class="section-p">
+            <span class="sr-only">Original price: </span>$169.99
+          </p>
+        </div>
+
+        <form action="" class="section-form">
+          <button type="submit" class="section-input" aria-label="Add to cart">
+            <img
+              src="images/icon-cart.svg"
+              alt=""
+              class="section-icon"
+              aria-hidden="true"
+            />
+            <span>Add to Cart</span>
+          </button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
