@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-purple-50: hsl(260, 100%, 95%);
+    --primary-purple-300: hsl(264, 82%, 80%);
+    --primary-purple-500: hsl(263, 55%, 52%);
+
+    --neutral-white: hsl(0, 0%, 100%);
+    --neutral-white-95: hsl(0, 0%, 95%);
+    --neutral-gray-100: hsl(214, 17%, 92%);
+    --neutral-gray-200: hsl(0, 0%, 81%);
+    --neutral-gray-400: hsl(224, 10%, 45%);
+    --neutral-gray-500: hsl(217, 19%, 35%);
+    --neutral-dark-blue: hsl(219, 29%, 14%);
+    --neutral-black: hsl(0, 0%, 7%);
+
+    --font-weight-500: 400;
+    --font-weight-600: 600;
+
+    --font-size-small: 0.875rem;
+    --font-size-medium: 1rem;
+    --font-size-large: 1.2rem;
+    --font-size-x-large: 2rem;
+    --font-size-xx-large: 2.5rem;
+
+    --paragraph-size-micro: 0.75rem;
+    --paragraph-size-small: 0.875rem;
+    --paragraph-size-default: 1rem;
+
+    --line-height-small: 1.25rem;
+    --line-height-default: 1.5rem;
+    --line-height-medium: 1.75rem;
+    --line-height-large: 2rem;
+    --line-height-x-large: 2.5rem;
+
+    --box-shadow: 10px 15px 26px #cdc1c1,
+    -10px -15px 26px #ebdfdf;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+
+    min-height: 100dvh;
+    background-color: var(--neutral-white-95);
+
+
+    & main {
+        display: grid;
+
+        width: 95%;
+        grid-auto-columns: 1fr;
+
+        grid-template-areas: "daniel daniel jonathan kira"
+        "jaenete patrick patrick kira";
+        gap: 1.5rem;
+        margin: 1rem 0;
+
+
+
+        & .container-1 {
+            grid-area: daniel;
+            background-color: var(--primary-purple-500);
+            box-shadow: var(--box-shadow)
+
+        }
+
+        & .container-2 {
+            grid-area: jonathan;
+            background-color: var(--neutral-gray-500);
+            box-shadow: var(--box-shadow)
+        }
+
+        & .container-3 {
+            grid-area: jaenete;
+            background-color: var(--neutral-white);
+            box-shadow: var(--box-shadow)
+        }
+
+        & .container-4 {
+            grid-area: patrick;
+            background-color: var(--neutral-dark-blue);
+            box-shadow: var(--box-shadow)
+        }
+
+        & .container-5 {
+            grid-area: kira;
+            background-color: var(--neutral-white);
+            box-shadow: var(--box-shadow);
+
+
+        }
+
+        & .article {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 3rem;
+            gap: 1.5rem;
+            border-radius: 10px;
+        }
+    }
+}
+
+.img {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.title-verified{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+article picture img {
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 2rem;
+}
+
+.p-color, .title-color, .name-color, .name-color + p {
+    color: var(--neutral-white);
+}
+
+.p-w, .title-w, .name-w, .name-w + p {
+    color: var(--neutral-dark-blue);
+}
+
+.name-w, .name-color{
+    font-size: clamp(var(--font-size-small), 1vw + 1.25rem, var(--font-size-x-large));
+}
+.name-w + p, .name-color + p{
+    font-size: clamp(var(--paragraph-size-micro), 1vw + 0.25rem, var(--paragraph-size-small));
+}
+
+.title-w, .title-color {
+    font-size: clamp(var(--font-size-small), 1vw + 1.25rem, var(--font-size-x-large));
+    text-align: inherit;
+}
+
+.p-w, .p-color{
+    font-size: clamp(var(--paragraph-size-micro), 1vw + 0.25rem, var(--paragraph-size-small));
+    line-height: var(--line-height-default);
+    text-align: justify;
+}
+
+@media (max-width: 1400px){
+    .cointer-main{
+        display: grid;
+        grid-auto-columns: 1fr;
+
+        grid-template-areas: "daniel daniel jonathan"
+        "jaenete patrick patrick"
+        "kira kira kira";
+    }
+}
+@media (max-width: 875px){
+    .cointer-main{
+        display: grid;
+        grid-auto-columns: 1fr;
+
+        grid-template-areas: "daniel daniel jonathan jonathan"
+        "jaenete jaenete patrick patrick"
+        "kira kira kira kira";
+    }
+}
+
+@media (max-width: 700px){
+    .cointer-main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+}
